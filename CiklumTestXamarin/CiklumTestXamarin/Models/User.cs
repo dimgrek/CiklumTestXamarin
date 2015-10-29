@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace CiklumTestXamarin.Models
+﻿namespace CiklumTestXamarin.Models
 {
     public class User
     {
@@ -22,6 +16,6 @@ namespace CiklumTestXamarin.Models
         public string phone { get; set; }
         public string cell { get; set; }
         public string HETU { get; set; }
-        public Picture picture { get; set; }
+        //public Picture picture { get; set; }
     }
 }

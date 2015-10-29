@@ -1,16 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
+using CiklumTestXamarin.Models;
+using CiklumTestXamarin.Service.Networking;
+using Newtonsoft.Json;
 
-namespace CiklumTestXamarin.Service.User
+namespace CiklumTestXamarin.Service.UserService
 {
     public class UserService : IUserService
     {
-        public Task<UserService> GetUser()
+        private const string APIAdress = "http://api.randomuser.me/";
+        private readonly IRestClient _restClient = new RestClient();
+
+        public async Task<User> GetUser()
         {
-            throw new NotImplementedException();
+            var responce = await _restClient.GetAsync(APIAdress);
+            return JsonConvert.DeserializeObject<User>(responce);
         }
     }
 }

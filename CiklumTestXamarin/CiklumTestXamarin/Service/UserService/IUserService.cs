@@ -1,9 +1,9 @@
 ﻿using System.Threading.Tasks;
 
-namespace CiklumTestXamarin.Service.User
+namespace CiklumTestXamarin.Service.UserService
 {
     public interface IUserService
     {
-        Task<UserService> GetUser();
+        Task<Models.User> GetUser();
     }
 }
