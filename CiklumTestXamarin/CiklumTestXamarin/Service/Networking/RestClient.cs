@@ -10,7 +10,7 @@ namespace CiklumTestXamarin.Service.Networking
             var httpClient = new HttpClient();
             var responce = await httpClient.GetAsync(uri);
             var content = await responce.Content.ReadAsStringAsync();
-            return content;
+            return "1";
         }
     }
 }

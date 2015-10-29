@@ -15,10 +15,10 @@ namespace CiklumTestXamarin.Service.UserService
             _restClient = new RestClient();
         }
 
-        public async Task<Result> GetUser()
+        public async Task<Results> GetUser()
         {
             var responce = await _restClient.GetAsync(APIAdress);
-            return JsonConvert.DeserializeObject<Result>(responce);
+            return JsonConvert.DeserializeObject<Results>(responce);
         }
     }
 }

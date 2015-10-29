@@ -5,6 +5,6 @@ namespace CiklumTestXamarin.Service.UserService
 {
     public interface IUserService
     {
-        Task<Result> GetUser();
+        Task<Results> GetUser();
     }
 }

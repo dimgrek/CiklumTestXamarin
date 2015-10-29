@@ -20,6 +20,8 @@ namespace CiklumTestXamarin.ViewModels
         {
             LastName = "Ivanov";
             Name = "Ivan";
+            Email = "email";
+            UserName = "User Name";
             GetUserCommand = new Command(GetUser);
             _us = new UserService();
         }
