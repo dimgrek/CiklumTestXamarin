@@ -8,12 +8,17 @@ namespace CiklumTestXamarin.Service.UserService
     public class UserService : IUserService
     {
         private const string APIAdress = "http://api.randomuser.me/";
-        private readonly IRestClient _restClient = new RestClient();
+        private readonly IRestClient _restClient;
 
-        public async Task<User> GetUser()
+        public UserService()
+        {
+            _restClient = new RestClient();
+        }
+
+        public async Task<Result> GetUser()
         {
             var responce = await _restClient.GetAsync(APIAdress);
-            return JsonConvert.DeserializeObject<User>(responce);
+            return JsonConvert.DeserializeObject<Result>(responce);
         }
     }
 }

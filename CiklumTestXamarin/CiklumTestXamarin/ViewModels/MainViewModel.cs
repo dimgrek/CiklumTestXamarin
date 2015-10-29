@@ -9,9 +9,11 @@ namespace CiklumTestXamarin.ViewModels
 {
     public class MainViewModel:INotifyPropertyChanged
     {
+        private string _email;
         private string _lastName;
         private string _name;
         private UserService _us;
+        private string _userName;
 
 
         public MainViewModel()
@@ -20,6 +22,18 @@ namespace CiklumTestXamarin.ViewModels
             Name = "Ivan";
             GetUserCommand = new Command(GetUser);
             _us = new UserService();
+        }
+
+        public string Email
+        {
+            get { return _email; }
+            set { _email = value; }
+        }
+
+        public string UserName
+        {
+            get { return _userName; }
+            set { _userName = value; }
         }
 
         public ICommand GetUserCommand { get; private set; }
@@ -41,9 +55,11 @@ namespace CiklumTestXamarin.ViewModels
 
         private async void GetUser()
         {
-            var user = await _us.GetUser();
-            LastName = user.name.first;
-            Name = user.name.last;
+            var result = await _us.GetUser();
+            UserName = result.user.email;
+            Name = result.user.name.first;
+            LastName = result.user.name.last;
+            Email = result.user.email;
         }
 
         [NotifyPropertyChangedInvocator]
